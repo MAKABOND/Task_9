@@ -323,46 +323,9 @@ print("Man has studied \(calculationStuding.yearStudy) years.")
 // - минимально возможный рост и вес
 // - создайте свойство, которое будет содержать количество созданных объектов этого класса
 
-//class Human {
-//    class var ageControl: (min: Int, max: Int) {
-//        return (1, 90)
-//    }
-//    class var nameLenghtControl: (min: Int, max: Int) {
-//        return (2, 10)
-//    }
-//    class var surnameLenghtControl: (min: Int, max: Int) {
-//        return (2, 10)
-//    }
-//
-//    var name: String
-//    var surname: String
-//    var age: Int
-//    var height: Double
-//    var weight: Double
-//
-//    struct NumberOfObjectsCreated {
-//        static var totalHuman = 0
-//    }
-//
-//    init(name: String, surname: String, age: Int, height: Double, weight: Double) {
-//        self.name = name
-//        self.surname = surname
-//        self.age = age
-//        self.height = height
-//        self.weight = weight
-//        NumberOfObjectsCreated.totalHuman += 1
-//    }
-//}
-//
-//Human.NumberOfObjectsCreated.totalHuman
-//var humanOne = Human(name: "Makar", surname: "Erimeevich", age: 15, height: 195.443, weight: 85.3)
-//Human.NumberOfObjectsCreated.totalHuman
-//var humanTwo = Human(name: "Roman", surname: "Artemkov", age: 20, height: 195, weight: 110.4)
-//Human.NumberOfObjectsCreated.totalHuman
-
 class Human {
     class var ageControlMin: Int { return 1 }
-    class var ageControlMax: Int { return 10 }
+    class var ageControlMax: Int { return 100 }
     class var lenghtControlMin: Int { return 2 }
     class var lenghtControlMax: Int { return 10 }
     class var weightControlMin: Int { return 20 }
@@ -387,7 +350,7 @@ class Human {
     }
     var age: Int {
         didSet {
-            if age > Human.ageControlMin && age < Human.ageControlMax {
+            if age < Human.ageControlMin || age > Human.ageControlMax {
                 age = oldValue
             }
         }
@@ -422,10 +385,9 @@ class Human {
 }
 
 Human.ItemCounter.totalHuman
-var humanOne = Human(name: "Makar", surname: "Erimeevich", age: 15, height: 185, weight: 89)
+var humanOne = Human(name: "Makar", surname: "Erimeevich", age: 15, height: 300, weight: 89)
 humanOne.name = "///////////////////////////////////////////////////////"
 humanOne.surname = "////////////////////////////////////////////////////"
-humanOne.name
 Human.ItemCounter.totalHuman
 var humanTwo = Human(name: "TATYANA", surname: "PUPOVA", age: 20, height: 190, weight: 44)
 Human.ItemCounter.totalHuman
